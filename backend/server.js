@@ -9,6 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ ADD THIS ROOT ROUTE (VERY IMPORTANT)
+app.get("/", (req, res) => {
+  res.send("🚀 Mini SaaS API is running");
+});
+
+// routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
